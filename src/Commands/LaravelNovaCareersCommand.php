@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Creode\LaravelNovaCareers\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class LaravelNovaCareersCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-nova-careers';
 
     public $description = 'My command';
 
