@@ -17,9 +17,6 @@ class LaravelNovaCareersServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('laravel-nova-careers')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_laravel-nova-careers_table')
-            ->hasCommand(LaravelNovaCareersCommand::class);
+            ->hasConfigFile();
     }
 }

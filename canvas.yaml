@@ -1,0 +1,27 @@
+preset: package
+
+namespace: Creode\LaravelNovaCareers
+user-auth-model: App\Models\User
+
+paths:
+  src: src
+  resource: resources
+
+factory:
+  path: database/factories
+
+migration:
+  path: database/migrations
+  prefix: ''
+
+console:
+  namespace: Creode\LaravelNovaCareers\Console
+
+model:
+  namespace: Creode\LaravelNovaCareers\Models
+
+provider:
+  namespace: Creode\LaravelNovaCareers\Providers
+
+testing:
+  namespace: Creode\LaravelNovaCareers\Tests
