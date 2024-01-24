@@ -78,7 +78,7 @@ class CareerResource extends Resource
     protected function seoFields(): ?array
     {
         return [
-                \Laravel\Nova\Fields\Slug::make('Slug')
+            \Laravel\Nova\Fields\Slug::make('Slug')
                 ->sortable()
                 ->rules('required', 'max:255')
                 ->from('Title')
