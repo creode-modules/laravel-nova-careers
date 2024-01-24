@@ -2,9 +2,10 @@
 
 namespace Creode\LaravelNovaCareers;
 
+use Laravel\Nova\Nova;
 use Spatie\LaravelPackageTools\Package;
+use Creode\LaravelNovaCareers\Nova\CareerResource;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Creode\LaravelNovaCareers\Commands\LaravelNovaCareersCommand;
 
 class LaravelNovaCareersServiceProvider extends PackageServiceProvider
 {
@@ -18,5 +19,19 @@ class LaravelNovaCareersServiceProvider extends PackageServiceProvider
         $package
             ->name('laravel-nova-careers')
             ->hasConfigFile();
+    }
+
+    public function boot()
+    {
+        parent::boot();
+
+        // Load in configuration by default.
+        $this->mergeConfigFrom(__DIR__.'/../config/nova-careers.php', 'nova-careers');
+
+        // Register the Model for the CareerResource and the CareerResource itself.
+        CareerResource::$model = config('careers.model');
+        Nova::resources([
+            CareerResource::class,
+        ]);
     }
 }
