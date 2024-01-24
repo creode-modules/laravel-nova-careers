@@ -140,8 +140,9 @@ class CareerResource extends Resource
     protected function jobDescriptionFields(): ?array
     {
         return [
-            \Laravel\Nova\Fields\Textarea::make('Description')
-                ->rules('required'),
+            \Creode\NovaPageBuilder\Nova\Fields\PageBuilder::make('Description')
+                ->rules('required')
+                ->exclude(config('nova-careers.excluded_blocks')),
         ];
     }
 

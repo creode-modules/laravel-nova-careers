@@ -33,4 +33,15 @@ return [
     */
     'email' => env('CAREERS_EMAIL', ''),
 
+    /*
+    |--------------------------------------------------------------------------
+    | Excluded Blocks
+    |--------------------------------------------------------------------------
+    |
+    | List of block names to be excluded from the page builder.
+    |
+    */
+    'excluded_blocks' => [
+        'imageWithText',
+    ]
 ];
