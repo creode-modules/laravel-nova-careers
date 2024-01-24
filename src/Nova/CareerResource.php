@@ -110,14 +110,7 @@ class CareerResource extends Resource
                 ->help(__('The salary is used to display the salary of the job.')),
 
             \Laravel\Nova\Fields\Select::make('Type')
-                ->options([
-                    'Full Time' => 'Full Time',
-                    'Part Time' => 'Part Time',
-                    'Contract' => 'Contract',
-                    'Freelance' => 'Freelance',
-                    'Internship' => 'Internship',
-                    'Temporary' => 'Temporary',
-                ])
+                ->options(config('nova-careers.job_types'))
                 ->rules('required', 'max:255')
                 ->help(__('The type is used to display the type of the job.')),
 
