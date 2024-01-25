@@ -13,6 +13,20 @@ You can install the package via composer:
 composer require creode/laravel-nova-careers
 ```
 
+### Setup Page Builder Model
+The default Career model has to be replaced to utilise some of the new page builder features, so ensure that you use the new model by editing the existing careers config:
+
+```php
+// config/careers.php
+return [
+    ...
+    'model' => Creode\LaravelNovaCareers\Models\NovaCareer::class,
+    ...
+];
+```
+
+### Publishing Config
+
 You can publish the config file with:
 
 ```bash
@@ -46,16 +60,24 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Careers Email
+    | Application Email
     |--------------------------------------------------------------------------
     |
     | This value is the email address that careers applications will be sent
     | to.
     |
     */
-    'email' => env('CAREERS_EMAIL', ''),
+    'application_email' => env('CAREERS_EMAIL', ''),
 
 ];
+```
+
+### Publishing Views
+
+You can publish the views this module utilises with:
+
+```bash
+php artisan vendor:publish --tag="nova-careers-views"
 ```
 
 ## Changelog

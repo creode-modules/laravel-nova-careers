@@ -24,14 +24,14 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Careers Email
+    | Application Email
     |--------------------------------------------------------------------------
     |
     | This value is the email address that careers applications will be sent
     | to.
     |
     */
-    'email' => env('CAREERS_EMAIL', ''),
+    'application_email' => env('CAREERS_EMAIL', ''),
 
     /*
     |--------------------------------------------------------------------------
@@ -41,7 +41,5 @@ return [
     | List of block names to be excluded from the page builder.
     |
     */
-    'excluded_blocks' => [
-        'imageWithText',
-    ]
+    'excluded_blocks' => [],
 ];
