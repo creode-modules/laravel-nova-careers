@@ -80,6 +80,22 @@ You can publish the views this module utilises with:
 php artisan vendor:publish --tag="nova-careers-views"
 ```
 
+### Registering Vacancies Page Block
+This module supports the ability to expose a new optional page block within your site. This can be used in line with the `creode/nova-page-builder` module.
+
+The block will display a list of vacancies that are currently active. To register the block add the following service provider to your `config/app.php` file:
+
+```php
+
+// config/app.php
+'providers' => [
+    ....
+    Creode\LaravelNovaCareers\Providers\CareersPageBlockProvider::class,
+    ...
+];
+
+```
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
