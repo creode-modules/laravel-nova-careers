@@ -2,6 +2,7 @@
 
 namespace Creode\LaravelNovaCareers\Nova;
 
+use Creode\NovaPublishable\Published;
 use Laravel\Nova\Resource;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\FormData;
@@ -48,19 +49,8 @@ class CareerResource extends Resource
                 ->sortable()
                 ->rules('required', 'max:255'),
 
-            \Laravel\Nova\Fields\DateTime::make('Published At')
-                ->fillUsing(function ($request, $model, $attribute, $requestAttribute) {
-                    // No value, don't format it.
-                    if (empty($request->input($requestAttribute))) {
-                        $model->{$attribute} = null;
-                        return;
-                    }
-
-                    // Format the value into a timestamp.
-                    $model->{$attribute} = (new \DateTime($request->input($requestAttribute)))->format('Y-m-d H:i:s');
-                })
-                ->sortable()
-                ->help(__('Any date in the future will not be published until that date. Any date in the past will be published immediately. If left blank, the job will be unpublished.')),
+            Published::make('Published', 'published_at')
+                ->help(__('Should this career be visible on the website?')),
 
             new \Laravel\Nova\Panel('SEO', $this->seoFields()),
 
