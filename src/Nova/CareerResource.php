@@ -2,11 +2,13 @@
 
 namespace Creode\LaravelNovaCareers\Nova;
 
-use Creode\NovaPublishable\Published;
 use Laravel\Nova\Resource;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\FormData;
+use Creode\NovaPublishable\Published;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Creode\NovaPublishable\Nova\PublishAction;
+use Creode\NovaPublishable\Nova\UnpublishAction;
 
 class CareerResource extends Resource
 {
@@ -142,5 +144,26 @@ class CareerResource extends Resource
     public static function label()
     {
         return 'Careers';
+    }
+
+    /**
+     * Get the actions available for the resource.
+     *
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @return array
+     */
+    public function actions(NovaRequest $request)
+    {
+        return [
+            (new PublishAction)
+                ->confirmText('Are you sure you want to publish these items?')
+                ->confirmButtonText('Publish')
+                ->cancelButtonText("Don't Publish"),
+
+            (new UnpublishAction)
+                ->confirmText('Are you sure you want to unpublish these items?')
+                ->confirmButtonText('Unpublish')
+                ->cancelButtonText("Don't Unpublish")
+        ];
     }
 }
