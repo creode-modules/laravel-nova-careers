@@ -48,8 +48,9 @@ return [
     | Traffic Cop
     |--------------------------------------------------------------------------
     |
-    | Indicates whether Nova should check for modifications between viewing and updating a resource.
+    | Indicates whether Nova should check for modifications between viewing
+    | and updating a resource.
     |
     */
-    'trafficCop' => false,
+    'traffic_cop' => true,
 ];
