@@ -34,6 +34,9 @@ class LaravelNovaCareersServiceProvider extends PackageServiceProvider
         // Replace default controller so we can override the view that gets rendered.
         $this->app->bind(CareerController::class, NovaCareerController::class);
 
+        // Set TrafficCop on the CareerResource
+        CareerResource::$trafficCop = config('nova-careers.trafficCop');
+
         // Register the Model for the CareerResource and the CareerResource itself.
         CareerResource::$model = config('careers.model');
         Nova::resources([
