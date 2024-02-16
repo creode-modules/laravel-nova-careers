@@ -42,4 +42,14 @@ return [
     |
     */
     'excluded_blocks' => [],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Traffic Cop
+    |--------------------------------------------------------------------------
+    |
+    | Indicates whether Nova should check for modifications between viewing and updating a resource.
+    |
+    */
+    'trafficCop' => false,
 ];
