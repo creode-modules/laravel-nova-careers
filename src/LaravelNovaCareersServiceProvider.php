@@ -35,7 +35,7 @@ class LaravelNovaCareersServiceProvider extends PackageServiceProvider
         $this->app->bind(CareerController::class, NovaCareerController::class);
 
         // Set TrafficCop on the CareerResource
-        CareerResource::$trafficCop = config('nova-careers.trafficCop');
+        CareerResource::$trafficCop = config('nova-careers.traffic_cop');
 
         // Register the Model for the CareerResource and the CareerResource itself.
         CareerResource::$model = config('careers.model');
